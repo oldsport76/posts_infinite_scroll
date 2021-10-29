@@ -1,0 +1,1 @@
+enum AsyncRequestStatus { uninitialized, loading, success, failure }
