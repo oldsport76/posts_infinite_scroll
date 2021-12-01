@@ -28,7 +28,7 @@ class Transport {
         return _http.post(uri, body: request.body);
 
       default:
-        return Future.value();
+        return Future.value(Response('', 501));
     }
   }
 }
