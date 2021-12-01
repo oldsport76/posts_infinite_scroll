@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:posts_infinite_scroll/posts_event.dart';
-import 'package:posts_infinite_scroll/posts_state.dart';
+import 'package:posts_infinite_scroll/features/posts/presentation/bloc/posts_event.dart';
+import 'package:posts_infinite_scroll/features/posts/presentation/bloc/posts_state.dart';
 import 'package:posts_infinite_scroll/service.dart';
 
-import 'async_request_status.dart';
+import '../../../../async_request_status.dart';
 
 class PostsBloc extends Bloc<PostsEvent, PostsState> {
   PostsBloc() : super(const PostsState());

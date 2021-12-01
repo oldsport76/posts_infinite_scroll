@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:posts_infinite_scroll/async_request_status.dart';
 import 'package:posts_infinite_scroll/post.dart';
-import 'package:posts_infinite_scroll/posts_bloc.dart';
-import 'package:posts_infinite_scroll/posts_event.dart';
-import 'package:posts_infinite_scroll/posts_state.dart';
+import 'package:posts_infinite_scroll/features/posts/presentation/bloc/posts_bloc.dart';
+import 'package:posts_infinite_scroll/features/posts/presentation/bloc/posts_event.dart';
+import 'package:posts_infinite_scroll/features/posts/presentation/bloc/posts_state.dart';
 
 void main() {
   runApp(const MyApp());
