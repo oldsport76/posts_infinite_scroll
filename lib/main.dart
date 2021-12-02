@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:posts_infinite_scroll/async_request_status.dart';
-import 'package:posts_infinite_scroll/features/posts/domain/usecases/get_posts.dart';
-import 'package:posts_infinite_scroll/injection_container.dart';
-import 'package:posts_infinite_scroll/post.dart';
+import 'package:posts_infinite_scroll/core/utils/async_request_status.dart';
+import 'package:posts_infinite_scroll/features/posts/domain/entities/post.dart';
 import 'package:posts_infinite_scroll/features/posts/presentation/bloc/posts_bloc.dart';
 import 'package:posts_infinite_scroll/features/posts/presentation/bloc/posts_event.dart';
 import 'package:posts_infinite_scroll/features/posts/presentation/bloc/posts_state.dart';
+import 'package:posts_infinite_scroll/injection_container.dart';
+
 import 'injection_container.dart' as di;
 
 Future<void> main() async {

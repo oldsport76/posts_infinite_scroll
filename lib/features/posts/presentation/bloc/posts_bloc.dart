@@ -2,16 +2,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:posts_infinite_scroll/features/posts/domain/usecases/get_posts.dart';
 import 'package:posts_infinite_scroll/features/posts/presentation/bloc/posts_event.dart';
 import 'package:posts_infinite_scroll/features/posts/presentation/bloc/posts_state.dart';
-import 'package:posts_infinite_scroll/service.dart';
 
-import '../../../../async_request_status.dart';
+import '../../../../core/utils/async_request_status.dart';
 
 class PostsBloc extends Bloc<PostsEvent, PostsState> {
   final GetPosts getPosts;
 
   PostsBloc(this.getPosts) : super(const PostsState());
-
-  final _service = Service();
 
   @override
   Stream<PostsState> mapEventToState(PostsEvent event) async* {
@@ -21,7 +18,7 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
           yield state.copyWith(fetchPostsStatus: AsyncRequestStatus.loading);
 
           final pageToFetch = state.lastPage + 1;
-          final posts = await _service.getPosts(pageToFetch);
+          final posts = await getPosts(Params(pageNumber: pageToFetch));
 
           yield state.copyWith(
               fetchPostsStatus: AsyncRequestStatus.success,

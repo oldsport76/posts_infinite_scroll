@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:posts_infinite_scroll/async_request_status.dart';
-import 'package:posts_infinite_scroll/post.dart';
+import 'package:posts_infinite_scroll/core/utils/async_request_status.dart';
+import 'package:posts_infinite_scroll/features/posts/domain/entities/post.dart';
 
 class PostsState extends Equatable {
   const PostsState(
