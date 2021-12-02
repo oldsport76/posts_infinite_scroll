@@ -3,7 +3,7 @@ import 'package:posts_infinite_scroll/features/posts/domain/entities/post.dart';
 import 'package:posts_infinite_scroll/features/posts/domain/repositories/i_post_repository.dart';
 
 class PostRepository extends IPostRepository {
-  final PostsRemoteDataSource postsRemoteDataSource;
+  final IPostsRemoteDataSource postsRemoteDataSource;
 
   PostRepository({required this.postsRemoteDataSource});
 

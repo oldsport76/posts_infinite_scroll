@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:posts_infinite_scroll/async_request_status.dart';
+import 'package:posts_infinite_scroll/features/posts/domain/usecases/get_posts.dart';
+import 'package:posts_infinite_scroll/injection_container.dart';
 import 'package:posts_infinite_scroll/post.dart';
 import 'package:posts_infinite_scroll/features/posts/presentation/bloc/posts_bloc.dart';
 import 'package:posts_infinite_scroll/features/posts/presentation/bloc/posts_event.dart';
 import 'package:posts_infinite_scroll/features/posts/presentation/bloc/posts_state.dart';
+import 'injection_container.dart' as di;
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(const MyApp());
 }
 
@@ -16,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => PostsBloc()..add(PostsFetched()),
+      create: (context) => sl<PostsBloc>()..add(PostsFetched()),
       child: MaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.blue,

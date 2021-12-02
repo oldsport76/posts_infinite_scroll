@@ -5,33 +5,28 @@ import 'package:posts_infinite_scroll/features/posts/domain/repositories/i_post_
 import 'package:posts_infinite_scroll/features/posts/domain/usecases/get_posts.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:posts_infinite_scroll/features/posts/presentation/bloc/posts_bloc.dart';
 
 final sl = GetIt.instance;
 
 Future<void> init() async {
-  //! Features - Number Trivia
+
   // Bloc
-  /*sl.registerFactory(
-        () => NumberTriviaBloc(
-      concrete: sl(),
-      inputConverter: sl(),
-      random: sl(),
-    ),
-  );*/
+  sl.registerFactory(
+    () => PostsBloc(sl()),
+  );
+
+  // Repository
+  sl.registerLazySingleton<IPostRepository>(
+        () => PostRepository(postsRemoteDataSource: sl()),
+  );
 
   // Use cases
   sl.registerLazySingleton(() => GetPosts(sl()));
 
-  // Repository
-  sl.registerLazySingleton<IPostRepository>(
-        () => PostRepository(
-      postsRemoteDataSource: sl()
-    ),
-  );
-
   // Data sources
   sl.registerLazySingleton<IPostsRemoteDataSource>(
-        () => PostsRemoteDataSource(client: sl()),
+    () => PostsRemoteDataSource(client: sl()),
   );
 
   //! External
